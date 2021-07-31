@@ -1,14 +1,19 @@
 #!/bin/sh
 
-feh --bg-fill ~/Pictures/wall/comfy.jpg &
-xrdb merge ~/Public/xresources/nord/.Xresources &
+setxkbmap it
 
-picom & 
+WALL=~/Pictures/wall/wall.jpg
 
-cp -r ~/Public/theme\ and\ icons/flux/.gtkrc-2.0 ~/ &
-cp -r ~/Public/theme\ and\ icons/flux/settings.ini  ~/.config/gtk-3.0/ &
+feh --bg-scale $WALL &
+wal -i $WALL
+#xrdb merge ~/Public/xresources/nord/.Xresources &
 
-cp -r ~/Public/rofi/dwm_nord/rofi/ ~/.config/ &
+picom &
+
+#cp -r ~/Public/theme\ and\ icons/flux/.gtkrc-2.0 ~/ &
+#cp -r ~/Public/theme\ and\ icons/flux/settings.ini  ~/.config/gtk-3.0/ &
+
+#cp -r ~/Public/rofi/dwm_nord/rofi/ ~/.config/ &
 
 xbacklight -set 10 &
 xmodmap ~/.xmodmap-sid &
