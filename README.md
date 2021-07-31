@@ -1,4 +1,4 @@
-# chadwm (Initial look)
+# chadwm
 
 <img src="https://github.com/siduck76/chadwm/blob/main/screenshots/col_layout.png">
 
