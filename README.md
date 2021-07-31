@@ -6,9 +6,10 @@
 
 # Requirements
 
-- xsetroot package ( status2d uses this to add colors on dwmbar)
-- xmenu (for layoutmenu)
-- JetbrainsMono Nerd Font and Material design icon font
+```
+# sudo pacman -S xorg-xsetroot
+# yay -S xmenu nerd-fonts-jetbrains-mono ttf-material-design-icons
+```
 
 # Setup
 
@@ -18,6 +19,7 @@ $ chmod +x ~/.dwm/bar
 $ chmod +x ~/.dwm/autostart
 # sudo mv layoutmen.sh /usr/local/bin
 $ cd chadwm
+$ make
 # sudo make install
 ```
 - autostart file must be adjusted for your liking!
