@@ -7,7 +7,7 @@
 # Requirements
 
 ```
-# sudo pacman -S xorg-xsetroot
+# sudo pacman -S xorg-xsetroot python-pywal
 # yay -S xmenu nerd-fonts-jetbrains-mono ttf-material-design-icons
 ```
 
