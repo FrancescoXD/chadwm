@@ -1,4 +1,4 @@
-# chadwm
+# chadwm (ArchLinux)
 
 <img src="https://github.com/siduck76/chadwm/blob/main/screenshots/col_layout.png">
 
@@ -20,7 +20,7 @@ $ cp wallpapers/wall.jpg ~/Wallpapers
 $ mv .dwm ~/
 $ chmod +x ~/.dwm/bar
 $ chmod +x ~/.dwm/autostart
-# sudo mv layoutmen.sh /usr/local/bin
+# sudo mv layoutmenu.sh /usr/local/bin
 $ cd dwm
 $ make
 # sudo make install
