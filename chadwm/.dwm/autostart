@@ -2,7 +2,7 @@
 
 setxkbmap it
 
-WALL=~/Pictures/wall/wall.jpg
+WALL=~/Wallpapers/wall.jpg
 
 feh --bg-scale $WALL &
 wal -i $WALL

@@ -14,11 +14,14 @@
 # Setup
 
 ```
+$ mkdir Wallpapers
+$ cd chadwm
+$ cp wallpapers/wall.jpg ~/Wallpapers
 $ mv .dwm ~/
 $ chmod +x ~/.dwm/bar
 $ chmod +x ~/.dwm/autostart
 # sudo mv layoutmen.sh /usr/local/bin
-$ cd chadwm
+$ cd dwm
 $ make
 # sudo make install
 ```
