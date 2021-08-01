@@ -2,7 +2,13 @@
 
 <img src="https://github.com/siduck76/chadwm/blob/main/screenshots/col_layout.png">
 
-- NOTE: This is vanilla dwm bar (status2d patch for setting colors) not dwmblocks or polybar. 
+- NOTE: This is vanilla dwm bar (status2d patch for setting colors) not dwmblocks or polybar.
+
+## To make installation easier and faster I made two scripts:
+1. install.sh (contains the setup instructions)
+2. packages.sh (install the needed packages)
+
+To use it you need to ```chmod +x``` the scripts.
 
 # Requirements
 
