@@ -2,7 +2,7 @@
 
 setxkbmap it
 feh --bg-fill ~/Pictures/wall/wall.jpg &
-#xrdb merge ~/Public/xresources/nord/.Xresources &
+xrdb merge ~/Public/xresources/nord/.Xresources &
 
 #picom & 
 
