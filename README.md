@@ -12,6 +12,11 @@ To use it you need to ```chmod +x``` the scripts.
 
 # Requirements
 
+## Fonts
+
+- Powerlevel10k (Zsh)
+- JetBrains Mono (Code)
+
 ```
 # sudo pacman -S xorg-xsetroot pacman-contrib
 # yay -S xmenu nerd-fonts-jetbrains-mono ttf-material-design-icons
