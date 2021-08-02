@@ -1,5 +1,5 @@
 # Install packages
-sudo pacman -S xorg-xsetroot python-pywal alacritty
+sudo pacman -S xorg-xsetroot python-pywal pacman-contrib
 
 # Install yay
 git clone https://aur.archlinux.org/yay.git
