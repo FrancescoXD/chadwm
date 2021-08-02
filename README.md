@@ -13,7 +13,7 @@ To use it you need to ```chmod +x``` the scripts.
 # Requirements
 
 ```
-# sudo pacman -S xorg-xsetroot python-pywal alacritty
+# sudo pacman -S xorg-xsetroot python-pywal pacman-contrib
 # yay -S xmenu nerd-fonts-jetbrains-mono ttf-material-design-icons
 ```
 
