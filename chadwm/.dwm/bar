@@ -72,11 +72,7 @@ clock() {
 while true; do
 
   # remove these 2 lines if u dont use void! or adjust the xbps-updates to get n.o of updates (according your distro ofc)
-<<<<<<< HEAD:chadwm/.dwm/bar
   [ $interval == 0 ] || [ $(($interval % 3600)) == 0 ] && updates=$(pacman_updates)
-=======
-  [ $interval == 0 ] || [ $(($interval % 3600)) == 0 ] && updates=$(xbps-updates) # use updates=$(pacman_updates) for arch
->>>>>>> f23d9f5aa7fa714b2f28a20c30fdc2805db95ae9:.dwm/bar
   interval=$((interval + 1))
 
   sleep 1 && xsetroot -name "$(update_icon) $updates $(batt) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
