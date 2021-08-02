@@ -13,26 +13,30 @@ To use it you need to ```chmod +x``` the scripts.
 # Requirements
 
 ```
-# sudo pacman -S xorg-xsetroot python-pywal pacman-contrib
+# sudo pacman -S xorg-xsetroot pacman-contrib
 # yay -S xmenu nerd-fonts-jetbrains-mono ttf-material-design-icons
 ```
+
+There is also a ```fonts``` dir if you don't want to use the aur.
 
 # Setup
 
 ```
-$ mkdir Wallpapers
+$ mkdir $HOME/Wallpapers
+$ cp wallpapers/wall.jpg $HOME/Wallpapers
+$ cp -r chadwm/.dwm $HOME/
+$ chmod +x $HOME/.dwm/autostart
+$ chmod +x $HOME/.dwm/bar
+$ chmod +x $HOME/.dwm/layoutmenu.sh
+$ chmod +x $HOME/.dwm/save_tagpreview
+$ chmod +x $HOME/.dwm/tag_preview
 $ cd chadwm
-$ cp wallpapers/wall.jpg ~/Wallpapers
-$ mv .dwm ~/
-$ chmod +x ~/.dwm/bar
-$ chmod +x ~/.dwm/autostart
-# sudo mv layoutmenu.sh /usr/local/bin
 $ cd dwm
 $ make
 # sudo make install
 ```
 - autostart file must be adjusted for your liking!
-- start dwm with exec ~/.dwm/autostart (NOT EXEC DWM) cuz autostart already runs dwm at the last , or make a dwm.desktop ( in /usr/share/xsessions folder ) replace the exec value from dwm to ~/.dwm/autostart.
+- start dwm with ```exec ~/.dwm/autostart``` or make a ```dwm.desktop``` (in /usr/share/xsessions folder) replace the exec value from dwm to ```~/.dwm/autostart```.
 
 # Credits 
 
