@@ -8,4 +8,3 @@ cd chadwm
 cd dwm
 make
 sudo make install
-
