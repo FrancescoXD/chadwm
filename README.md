@@ -18,7 +18,7 @@ To use it you need to ```chmod +x``` the scripts.
 - JetBrains Mono (Code)
 
 ```
-# sudo pacman -S xorg-xsetroot pacman-contrib rofi scrot
+# sudo pacman -S xorg-xsetroot pacman-contrib rofi scrot feh
 # yay -S xmenu nerd-fonts-jetbrains-mono ttf-material-design-icons
 ```
 
@@ -29,6 +29,7 @@ There is also a ```fonts``` dir if you don't want to use the aur.
 ```
 $ cp -r fonts/* ~/.local/share/fonts
 $ mkdir $HOME/Wallpapers
+$ cat nord-xresources/src/nord > $HOME/Public/Xresources/nord/.Xresources
 $ cp wallpapers/wall.jpg $HOME/Wallpapers
 $ cp -r chadwm/.dwm $HOME/
 $ chmod +x $HOME/.dwm/autostart
