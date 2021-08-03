@@ -1,3 +1,4 @@
+cp -r fonts/* ~/.local/share/fonts
 mkdir $HOME/Wallpapers
 mkdir -p $HOME/Public/Xresources/nord
 cat nord-xresources/src/nord > $HOME/Public/Xresources/nord/.Xresources
