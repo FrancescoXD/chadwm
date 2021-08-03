@@ -1,5 +1,5 @@
 # Install packages
-sudo pacman -S xorg-xsetroot pacman-contrib
+sudo pacman -S xorg-xsetroot pacman-contrib rofi scrot
 
 # Install yay
 git clone https://aur.archlinux.org/yay.git
