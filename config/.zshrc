@@ -99,6 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="logo-ls"
+alias ls="logo-ls -h"
 alias ytdl="youtube-dl -F"
 alias audio="youtube-dl -f 251"
