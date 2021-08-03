@@ -1,7 +1,7 @@
 # Install packages
-sudo pacman -S xorg-xsetroot pacman-contrib rofi feh
+sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
 
-# Install st
+# Install st (siduck76's build)
 git clone https://github.com/siduck76/st
 cd st
 make
