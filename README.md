@@ -62,6 +62,13 @@ $ make
 - ```autostart``` file must be adjusted for your liking!
 - Start dwm with ```exec ~/.dwm/autostart``` or copy ```dwm.desktop``` in ```/usr/share/xsessions``` folder.
 
+## Shell packages
+- [logo-ls](https://github.com/Yash-Handa/logo-ls)
+- Zsh
+- [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh)
+
+You can find ```.zshrc``` in ```config``` folder.
+
 # Credits 
 
 - HUGE THANKS to [eProTaLT83](https://www.reddit.com/user/eProTaLT83). I wanted certain features in dwm and he implemented my ideas and created patches for me! I can't even count the number of times he has helped me :v
