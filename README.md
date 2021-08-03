@@ -27,9 +27,11 @@ To use it you need to ```chmod +x``` the scripts.
 - feh
 - xmenu
 - st (siduck76's build)
+- xbacklight
+- acpi
 
 ```
-# sudo pacman -S xorg-xsetroot pacman-contrib rofi feh
+# sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
 ```
 To install ```xmenu```:
 ```
@@ -42,6 +44,7 @@ There is also a ```fonts``` dir if you don't want to use the aur.
 
 # Setup
 
+- Change ```username``` in ```chadwm/dwm/config.def.h``` with your username.
 ```
 $ cp -r fonts/* ~/.local/share/fonts
 $ mkdir $HOME/Wallpapers
@@ -56,12 +59,12 @@ $ cd dwm
 $ make
 # sudo make install
 ```
-- autostart file must be adjusted for your liking!
-- start dwm with ```exec ~/.dwm/autostart``` or copy ```dwm.desktop``` in ```/usr/share/xsessions``` folder.
+- ```autostart``` file must be adjusted for your liking!
+- Start dwm with ```exec ~/.dwm/autostart``` or copy ```dwm.desktop``` in ```/usr/share/xsessions``` folder.
 
 # Credits 
 
-- HUGE THANKS to [eProTaLT83](https://www.reddit.com/user/eProTaLT83). I wanted certain features in dwm and he implemented my ideas and created patches for me! I   cant even count the number of times he has helped me :v 
+- HUGE THANKS to [eProTaLT83](https://www.reddit.com/user/eProTaLT83). I wanted certain features in dwm and he implemented my ideas and created patches for me! I can't even count the number of times he has helped me :v
 - @fitrh helped with [colorful tag patch](https://github.com/fitrh/dwm/issues/1)
 
 # Patches
