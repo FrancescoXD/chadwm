@@ -12,31 +12,66 @@ To use it you need to ```chmod +x``` the scripts.
 
 # Requirements
 
+## Fonts
+
+- Powerlevel10k (Zsh)
+- JetBrains Mono (Code)
+- JetBrains Mono Nerd Font
+- Material Design Icons
+
+## Packages
+
+- xsetroot
+- pacman-contrib
+- rofi
+- feh
+- xmenu
+- st (siduck76's build)
+- xbacklight
+- acpi
+
 ```
-# sudo pacman -S xorg-xsetroot python-pywal pacman-contrib
-# yay -S xmenu nerd-fonts-jetbrains-mono ttf-material-design-icons
+# sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
 ```
+To install ```xmenu```:
+```
+$ git clone https://aur.archlinux.org/xmenu.git
+$ cd xmenu
+$ makepkg -si
+```
+
+There is also a ```fonts``` dir if you don't want to use the aur.
 
 # Setup
 
+- Change ```username``` in ```chadwm/dwm/config.def.h``` with your username.
 ```
-$ mkdir Wallpapers
+$ cp -r fonts/* ~/.local/share/fonts
+$ mkdir $HOME/Wallpapers
+$ cat nord-xresources/src/nord > $HOME/Public/Xresources/nord/.Xresources
+$ cp wallpapers/wall.jpg $HOME/Wallpapers
+$ cp -r chadwm/.dwm $HOME/
+$ chmod +x $HOME/.dwm/autostart
+$ chmod +x $HOME/.dwm/bar
+$ chmod +x $HOME/.dwm/layoutmenu.sh
 $ cd chadwm
-$ cp wallpapers/wall.jpg ~/Wallpapers
-$ mv .dwm ~/
-$ chmod +x ~/.dwm/bar
-$ chmod +x ~/.dwm/autostart
-# sudo mv layoutmenu.sh /usr/local/bin
 $ cd dwm
 $ make
 # sudo make install
 ```
-- autostart file must be adjusted for your liking!
-- start dwm with exec ~/.dwm/autostart (NOT EXEC DWM) cuz autostart already runs dwm at the last , or change your dwm.desktop ( should be in /usr/share/xsessions folder ) replace the exec value from dwm to ~/.dwm/autostart.
+- ```autostart``` file must be adjusted for your liking!
+- Start dwm with ```exec ~/.dwm/autostart``` or copy ```dwm.desktop``` in ```/usr/share/xsessions``` folder.
+
+## Shell packages
+- [logo-ls](https://github.com/Yash-Handa/logo-ls)
+- Zsh
+- [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh)
+
+You can find ```.zshrc``` in ```config``` folder.
 
 # Credits 
 
-- Thanks a lot to [eProTaLT83](https://www.reddit.com/user/eProTaLT83) ( he has modified many dwm bar patches like barpadding,statuspadding, systray to work properly with status2d) and as implemented most of my ideas and created patches for them!
+- HUGE THANKS to [eProTaLT83](https://www.reddit.com/user/eProTaLT83). I wanted certain features in dwm and he implemented my ideas and created patches for me! I can't even count the number of times he has helped me :v
 - @fitrh helped with [colorful tag patch](https://github.com/fitrh/dwm/issues/1)
 
 # Patches

@@ -4,8 +4,8 @@
 #define XF86MonBrightnessUp 0x1008ff02
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int default_border = 0;  // to switch back to default border after dynamic border resizing via keybinds
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int default_border = 3;  // to switch back to default border after dynamic border resizing via keybinds
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -26,6 +26,7 @@ static const int vertpadbar         = 11;
 static const int vertpadtab         = 33;
 static const int horizpadtabi       = 15;
 static const int horizpadtabo       = 15;
+static const int scalepreview       = 4;
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:size=10",
                                         "Material Design Icons-Regular:size=10",
                                       };
@@ -80,10 +81,11 @@ static const Rule rules[] = {
     /* xprop(1):
      *	WM_CLASS(STRING) = instance, class
      *	WM_NAME(STRING) = title
-     */
-    /* class      instance    title       tags mask     isfloating   monitor */
-    { "Gimp",     NULL,       NULL,       0,            1,           -1 },
-    { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+    */
+    /* class      instance    title       tags mask     iscentered   isfloating   monitor */
+	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
+    { "feh",      NULL,       NULL,       0,            0,           1,           -1 },
 };
 
 /* layout(s) */
@@ -93,9 +95,7 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 #define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
-#include "vanitygaps.c"
-#include "movestack.c"
-#include "tatami.c"
+#include "functions.h"
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
@@ -131,14 +131,14 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = {  "st", NULL }; // change this to your term
 static const char *rofi[] = {"rofi", "-show", "drun", NULL };
-static const char *layoutmenu_cmd = "layoutmenu.sh";
+static const char *layoutmenu_cmd = "/home/username/.dwm/layoutmenu.sh";
 static const char *xi[] = {"xbacklight", "-inc", "7", NULL};
 static const char *xd[] = {"xbacklight", "-dec", "7", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_c,      spawn,          {.v = rofi } },
-    { MODKEY,                       XK_Return, spawn,    {.v = termcmd }}, 
+    { MODKEY,                       XK_Return, spawn,          {.v = termcmd }}, 
 
     {MODKEY | ControlMask, XK_u, spawn, SHCMD("maim | xclip -selection clipboard -t image/png")},
     {MODKEY, XK_u, spawn,   SHCMD("maim --select | xclip -selection clipboard -t image/png")},

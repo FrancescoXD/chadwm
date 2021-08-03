@@ -1,10 +1,8 @@
 # Install packages
-sudo pacman -S xorg-xsetroot python-pywal pacman-contrib
+sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
 
-# Install yay
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-
-# Install AUR packages
-yay -S xmenu nerd-fonts-jetbrains-mono ttf-material-design-icons
+# Install st (siduck76's build)
+git clone https://github.com/siduck76/st
+cd st
+make
+sudo make install
