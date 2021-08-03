@@ -10,20 +10,32 @@
 
 To use it you need to ```chmod +x``` the scripts.
 
-# Tag preview (while hovering tag icon)
-
-https://user-images.githubusercontent.com/59060246/128050994-17f46934-6604-4430-bece-f60b0700b6be.mp4
-
 # Requirements
 
 ## Fonts
 
 - Powerlevel10k (Zsh)
 - JetBrains Mono (Code)
+- JetBrains Mono Nerd Font
+- Material Design Icons
+
+## Packages
+
+- xsetroot
+- pacman-contrib
+- rofi
+- feh
+- xmenu
+- st (siduck76's build)
 
 ```
-# sudo pacman -S xorg-xsetroot pacman-contrib rofi scrot feh
-# yay -S xmenu nerd-fonts-jetbrains-mono ttf-material-design-icons
+# sudo pacman -S xorg-xsetroot pacman-contrib rofi feh
+```
+To install ```xmenu```:
+```
+$ git clone https://aur.archlinux.org/xmenu.git
+$ cd xmenu
+$ makepkg -si
 ```
 
 There is also a ```fonts``` dir if you don't want to use the aur.
@@ -39,15 +51,13 @@ $ cp -r chadwm/.dwm $HOME/
 $ chmod +x $HOME/.dwm/autostart
 $ chmod +x $HOME/.dwm/bar
 $ chmod +x $HOME/.dwm/layoutmenu.sh
-$ chmod +x $HOME/.dwm/save_tagpreview
-$ chmod +x $HOME/.dwm/tag_preview
 $ cd chadwm
 $ cd dwm
 $ make
 # sudo make install
 ```
 - autostart file must be adjusted for your liking!
-- start dwm with ```exec ~/.dwm/autostart``` or make a ```dwm.desktop``` (in /usr/share/xsessions folder) replace the exec value from dwm to ```~/.dwm/autostart```.
+- start dwm with ```exec ~/.dwm/autostart``` or copy ```dwm.desktop``` in ```/usr/share/xsessions``` folder.
 
 # Credits 
 
