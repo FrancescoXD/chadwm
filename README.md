@@ -29,10 +29,8 @@ To use it you need to ```chmod +x``` the scripts.
 - st (siduck76's build)
 - xbacklight
 - acpi
-- picom
-
 ```
-# sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
+sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
 ```
 To install ```xmenu```:
 ```
