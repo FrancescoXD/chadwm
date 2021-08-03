@@ -10,3 +10,12 @@ chmod +x $HOME/.dwm/layoutmenu.sh
 cd chadwm/dwm
 make
 sudo make install
+cd ../../
+
+echo "Do you use a Display Manager? (y/n): "
+echo -n "=> "
+read -r dm
+
+if [ $dm = "y" ] || [ $dm = "Y" ]; then
+	sudo cp dwm.desktop /usr/share/xsessions
+fi
