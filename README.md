@@ -29,9 +29,9 @@ To use it you need to ```chmod +x``` the scripts.
 - st (siduck76's build)
 - xbacklight
 - acpi
-
+- picom-ibhagwan-git (optional, see [St transparency](#st-transparency))
 ```
-# sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
+sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
 ```
 To install ```xmenu```:
 ```
@@ -60,7 +60,7 @@ $ make
 # sudo make install
 ```
 - ```autostart``` file must be adjusted for your liking!
-- Start dwm with ```exec ~/.dwm/autostart``` or copy ```dwm.desktop``` in ```/usr/share/xsessions``` folder.
+- If you are using ```xinit```, start dwm with ```exec ~/.dwm/autostart``` or copy ```dwm.desktop``` in ```/usr/share/xsessions``` folder.
 
 ## Shell packages
 - [logo-ls](https://github.com/Yash-Handa/logo-ls)
@@ -68,6 +68,19 @@ $ make
 - [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
 You can find ```.zshrc``` in ```config``` folder.
+
+## St transparency
+
+You need a compositor, in this case we are going to use a ```picom``` fork.
+
+To install ```picom-ibhagwan-git```:
+```
+$ git clone https://aur.archlinux.org/picom-ibhagwan-git.git
+$ cd xmenu
+$ makepkg -si
+```
+
+Then go to ```st``` folder, open the ```config.def.h```, on line 119 change ```float alpha = 1.0;``` to something like ```float alpha = 0.8;```.
 
 # Credits 
 

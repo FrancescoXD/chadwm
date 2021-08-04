@@ -4,8 +4,8 @@
 #define XF86MonBrightnessUp 0x1008ff02
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int default_border = 3;  // to switch back to default border after dynamic border resizing via keybinds
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int default_border = 0;  // to switch back to default border after dynamic border resizing via keybinds
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -112,6 +112,7 @@ static const Layout layouts[] = {
     { ":::",      gaplessgrid },
     { "|M|",      centeredmaster },
     { ">M>",      centeredfloatingmaster },
+    { "|+|",      tatami },
     { "><>",      NULL },    /* no layout function means floating behavior */
 };
 
@@ -218,6 +219,8 @@ static Key keys[] = {
         MODKEY|ControlMask,           XK_q,      quit,           {0}
     },
     { MODKEY|ShiftMask,             XK_r,      quit,           {1} },
+		{ MODKEY,                       XK_e,      hidewin,        {0} },
+	  { MODKEY|ShiftMask,             XK_e,      restorewin,     {0} },
 
 };
 
