@@ -1,3 +1,4 @@
+mkdir -p ~/.local/share/fonts
 cp -r fonts/* ~/.local/share/fonts
 mkdir $HOME/Wallpapers
 mkdir -p $HOME/Public/Xresources/nord
