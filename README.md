@@ -85,7 +85,7 @@ You need a compositor, in this case we are going to use a ```picom``` fork.
 To install ```picom-ibhagwan-git```:
 ```
 $ git clone https://aur.archlinux.org/picom-ibhagwan-git.git
-$ cd xmenu
+$ cd picom-ibhagwan-git
 $ makepkg -si
 ```
 
