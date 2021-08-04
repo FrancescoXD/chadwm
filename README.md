@@ -19,6 +19,8 @@ To use it you need to ```chmod +x``` the scripts.
 - JetBrains Mono Nerd Font
 - Material Design Icons
 
+Use the ```fonts``` dir if you don't want to use the aur.
+
 ## Packages
 
 - xsetroot
@@ -48,8 +50,6 @@ cd st
 make
 sudo make install
 ```
-
-There is also a ```fonts``` dir if you don't want to use the aur.
 
 # Setup
 
