@@ -29,6 +29,7 @@ To use it you need to ```chmod +x``` the scripts.
 - st (siduck76's build)
 - xbacklight
 - acpi
+- picom-ibhagwan-git
 ```
 sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
 ```
@@ -67,6 +68,19 @@ $ make
 - [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
 You can find ```.zshrc``` in ```config``` folder.
+
+## St transparency
+
+You need a compositor, in this case we are going to use a ```picom``` fork.
+
+To install ```picom-ibhagwan-git```:
+```
+$ git clone https://aur.archlinux.org/picom-ibhagwan-git.git
+$ cd xmenu
+$ makepkg -si
+```
+
+Then go to ```st``` folder, open the ```config.def.h```, on line 119 change ```float alpha = 1.0;``` to something like ```float alpha = 0.8;```.
 
 # Credits 
 
