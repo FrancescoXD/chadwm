@@ -12,6 +12,10 @@ To use it you need to ```chmod +x``` the scripts.
 
 # Requirements
 
+## DWM Dependencies
+- xorg
+- xorg-server
+
 ## Fonts
 
 - Powerlevel10k (Zsh)
@@ -29,7 +33,7 @@ To use it you need to ```chmod +x``` the scripts.
 - st (siduck76's build)
 - xbacklight
 - acpi
-- picom-ibhagwan-git
+- picom-ibhagwan-git (optional, see [St transparency](#st-transparency))
 ```
 sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
 ```
