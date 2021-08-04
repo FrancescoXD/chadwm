@@ -12,10 +12,6 @@ To use it you need to ```chmod +x``` the scripts.
 
 # Requirements
 
-## DWM Dependencies
-- xorg
-- xorg-server
-
 ## Fonts
 
 - Powerlevel10k (Zsh)
@@ -64,7 +60,7 @@ $ make
 # sudo make install
 ```
 - ```autostart``` file must be adjusted for your liking!
-- Start dwm with ```exec ~/.dwm/autostart``` or copy ```dwm.desktop``` in ```/usr/share/xsessions``` folder.
+- If you are using ```xinit```, start dwm with ```exec ~/.dwm/autostart``` or copy ```dwm.desktop``` in ```/usr/share/xsessions``` folder.
 
 ## Shell packages
 - [logo-ls](https://github.com/Yash-Handa/logo-ls)
