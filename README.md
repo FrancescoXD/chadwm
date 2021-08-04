@@ -33,11 +33,20 @@ To use it you need to ```chmod +x``` the scripts.
 ```
 sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
 ```
+
 To install ```xmenu```:
 ```
 $ git clone https://aur.archlinux.org/xmenu.git
 $ cd xmenu
 $ makepkg -si
+```
+
+To install ```st``` (siduck76's build):
+```
+git clone https://github.com/siduck76/st
+cd st
+make
+sudo make install
 ```
 
 There is also a ```fonts``` dir if you don't want to use the aur.
