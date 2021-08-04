@@ -54,6 +54,7 @@
   (MAX(0, MIN((x) + (w), (m)->wx + (m)->ww) - MAX((x), (m)->wx)) *             \
    MAX(0, MIN((y) + (h), (m)->wy + (m)->wh) - MAX((y), (m)->wy)))
 #define ISVISIBLE(C) ((C->tags & C->mon->tagset[C->mon->seltags]))
+#define HIDDEN(C)               ((getstate(C->win) == IconicState))
 #define LENGTH(X) (sizeof X / sizeof X[0])
 #define MOUSEMASK (BUTTONMASK | PointerMotionMask)
 #define WIDTH(X) ((X)->w + 2 * (X)->bw)
@@ -251,6 +252,7 @@ static unsigned int getsystraywidth();
 static int gettextprop(Window w, Atom atom, char *text, unsigned int size);
 static void grabbuttons(Client *c, int focused);
 static void grabkeys(void);
+static void hide(Client *c);
 static void incnmaster(const Arg *arg);
 static void keypress(XEvent *e);
 static void killclient(const Arg *arg);
@@ -291,6 +293,7 @@ static void setnumdesktops(void);
 static void setup(void);
 static void setviewport(void);
 static void seturgent(Client *c, int urg);
+static void show(Client *c);
 static void showhide(Client *c);
 static void showtagpreview(int tag);
 static void sigchld(int unused);
@@ -307,6 +310,8 @@ static void togglefloating(const Arg *arg);
 static void togglefullscr(const Arg *arg);
 static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
+static void hidewin(const Arg *arg);
+static void restorewin(const Arg *arg);
 static void unfocus(Client *c, int setfocus);
 static void unmanage(Client *c, int destroyed);
 static void unmapnotify(XEvent *e);
@@ -371,6 +376,10 @@ static Drw *drw;
 static Monitor *mons, *selmon;
 static Window root, wmcheckwin;
 
+#define hiddenWinStackMax 100
+static int hiddenWinStackTop = -1;
+static Client* hiddenWinStack[hiddenWinStackMax];
+
 /* configuration, allows nested code to access above variables */
 #include "config.h"
 
@@ -401,8 +410,7 @@ struct Monitor {
   Window barwin;
   Window tabwin;
   Window tagwin;
-  Pixmap tagmap;
-  Imlib_Image tag_images[LENGTH(tags)];
+  Pixmap tagmap[LENGTH(tags)];
   int previewshow;
   int ntabs;
   int tab_widths[MAXTABS];
@@ -679,16 +687,12 @@ void cleanupmon(Monitor *mon) {
     m->next = mon->next;
   }
   for (i = 0; i < LENGTH(tags); i++) {
-	  if (mon->tag_images[i]) {
-		  imlib_context_set_image(mon->tag_images[i]);
-		  imlib_free_image();
-	  }
+           XFreePixmap(dpy, mon->tagmap[i]);
   }
   XUnmapWindow(dpy, mon->barwin);
   XDestroyWindow(dpy, mon->barwin);
   XUnmapWindow(dpy, mon->tabwin);
   XDestroyWindow(dpy, mon->tabwin);
-  XFreePixmap(dpy, mon->tagmap);
   XUnmapWindow(dpy, mon->tagwin);
   XDestroyWindow(dpy, mon->tagwin);
   free(mon);
@@ -1561,8 +1565,8 @@ void expose(XEvent *e) {
 }
 
 void focus(Client *c) {
-  if (!c || !ISVISIBLE(c))
-    for (c = selmon->stack; c && !ISVISIBLE(c); c = c->snext)
+  if (!c || (!ISVISIBLE(c) || HIDDEN(c)))
+    for (c = selmon->stack; c && (!ISVISIBLE(c) || HIDDEN(c)); c = c->snext)
       ;
   if (selmon->sel && selmon->sel != c)
     unfocus(selmon->sel, 0);
@@ -1760,6 +1764,31 @@ void grabkeys(void) {
   }
 }
 
+void
+hide(Client *c) {
+	if (!c || HIDDEN(c))
+		return;
+
+	Window w = c->win;
+	static XWindowAttributes ra, ca;
+
+	// more or less taken directly from blackbox's hide() function
+	XGrabServer(dpy);
+	XGetWindowAttributes(dpy, root, &ra);
+	XGetWindowAttributes(dpy, w, &ca);
+	// prevent UnmapNotify events
+	XSelectInput(dpy, root, ra.your_event_mask & ~SubstructureNotifyMask);
+	XSelectInput(dpy, w, ca.your_event_mask & ~StructureNotifyMask);
+	XUnmapWindow(dpy, w);
+	setclientstate(c, IconicState);
+	XSelectInput(dpy, root, ra.your_event_mask);
+	XSelectInput(dpy, w, ca.your_event_mask);
+	XUngrabServer(dpy);
+
+	focus(c->snext);
+	arrange(c->mon);
+}
+
 void incnmaster(const Arg *arg) {
   selmon->nmaster = MAX(selmon->nmaster + arg->i, 0);
   arrange(selmon);
@@ -1883,12 +1912,14 @@ void manage(Window w, XWindowAttributes *wa) {
                   PropModeAppend, (unsigned char *)&(c->win), 1);
   XMoveResizeWindow(dpy, c->win, c->x + 2 * sw, c->y, c->w,
                     c->h); /* some windows require this */
-  setclientstate(c, NormalState);
+	if (!HIDDEN(c))
+		setclientstate(c, NormalState);
   if (c->mon == selmon)
     unfocus(selmon->sel, 0);
   c->mon->sel = c;
   arrange(c->mon);
-  XMapWindow(dpy, c->win);
+	if (!HIDDEN(c))
+		XMapWindow(dpy, c->win);
   focus(NULL);
 }
 
@@ -2049,7 +2080,7 @@ void movemouse(const Arg *arg) {
 }
 
 Client *nexttiled(Client *c) {
-  for (; c && (c->isfloating || !ISVISIBLE(c)); c = c->next)
+  for (; c && (c->isfloating || (!ISVISIBLE(c) || HIDDEN(c))); c = c->next)
     ;
   return c;
 }
@@ -2111,6 +2142,16 @@ void propertynotify(XEvent *e) {
 void quit(const Arg *arg) {
   if (arg->i)
     restart = 1;
+
+	Monitor *m;
+	Client *c;
+	for (m = mons; m; m = m->next) {
+		if (m) {
+			for (c = m->stack; c; c = c->next)
+				if (c && HIDDEN(c)) show(c);
+		}
+	}
+
   running = 0;
 }
 
@@ -2601,6 +2642,17 @@ void seturgent(Client *c, int urg) {
   XFree(wmh);
 }
 
+void
+show(Client *c)
+{
+	if (!c || !HIDDEN(c))
+		return;
+
+	XMapWindow(dpy, c->win);
+	setclientstate(c, NormalState);
+	arrange(c->mon);
+}
+
 void showhide(Client *c) {
   if (!c)
     return;
@@ -2626,16 +2678,9 @@ showtagpreview(int tag)
 		return;
 	}
 
-	if (selmon->tag_images[tag]) {
-		imlib_context_set_image(selmon->tag_images[tag]);
-		imlib_context_set_display(dpy);
-		imlib_context_set_visual(DefaultVisual(dpy, screen));
-		imlib_context_set_colormap(DefaultColormap(dpy, screen));
-		imlib_context_set_drawable(selmon->tagmap);
-               	imlib_render_image_part_on_drawable_at_size(0, 0, selmon->mw, selmon->mh, 0, 0, selmon->mw / scalepreview, selmon->mh / scalepreview);
-
-		XSetWindowBackgroundPixmap(dpy, selmon->tagwin, selmon->tagmap);
-                XCopyArea(dpy, selmon->tagmap, selmon->tagwin, drw->gc, 0, 0, selmon->mw / scalepreview, selmon->mh / scalepreview, 0, 0);
+        if (selmon->tagmap[tag]) {
+		XSetWindowBackgroundPixmap(dpy, selmon->tagwin, selmon->tagmap[tag]);
+		XCopyArea(dpy, selmon->tagmap[tag], selmon->tagwin, drw->gc, 0, 0, selmon->mw / scalepreview, selmon->mh / scalepreview, 0, 0);
 		XSync(dpy, False);
 		XMapWindow(dpy, selmon->tagwin);
 	} else
@@ -2678,20 +2723,27 @@ void switchtag(void) {
   	int i;
 	unsigned int occ = 0;
 	Client *c;
+        Imlib_Image image;
 
 	for (c = selmon->clients; c; c = c->next)
 		occ |= c->tags;
 	for (i = 0; i < LENGTH(tags); i++) {
 		if (selmon->tagset[selmon->seltags] & 1 << i) {
 			if (occ & 1 << i) {
-				selmon->tag_images[i] = imlib_create_image(sw, sh);
-				imlib_context_set_image(selmon->tag_images[i]);
+                          	image = imlib_create_image(sw, sh);
+				imlib_context_set_image(image);
 				imlib_context_set_display(dpy);
 				imlib_context_set_visual(DefaultVisual(dpy, screen));
 				imlib_context_set_drawable(RootWindow(dpy, screen));
 				imlib_copy_drawable_to_image(0, selmon->mx, selmon->my, selmon->mw ,selmon->mh, 0, 0, 1);
-			} else
-				selmon->tag_images[i] = NULL;
+                                selmon->tagmap[i] = XCreatePixmap(dpy, selmon->tagwin, selmon->mw / scalepreview, selmon->mh / scalepreview, DefaultDepth(dpy, screen));
+				imlib_context_set_drawable(selmon->tagmap[i]);
+				imlib_render_image_part_on_drawable_at_size(0, 0, selmon->mw, selmon->mh, 0, 0, selmon->mw / scalepreview, selmon->mh / scalepreview);
+				imlib_free_image();
+			} else if(selmon->tagmap[i] != 0) {
+				XFreePixmap(dpy, selmon->tagmap[i]);
+				selmon->tagmap[i] = 0;
+                        }
 		}
 	}
 }
@@ -2780,6 +2832,31 @@ void toggleview(const Arg *arg) {
     arrange(selmon);
   }
     	updatecurrentdesktop();
+}
+
+void hidewin(const Arg *arg) {
+	if (!selmon->sel)
+		return;
+	Client *c = (Client*)selmon->sel;
+	hide(c);
+	hiddenWinStack[++hiddenWinStackTop] = c;
+}
+
+void restorewin(const Arg *arg) {
+	int i = hiddenWinStackTop;
+	while (i > -1) {
+		if (HIDDEN(hiddenWinStack[i]) && hiddenWinStack[i]->tags == selmon->tagset[selmon->seltags]) {
+			show(hiddenWinStack[i]);
+			focus(hiddenWinStack[i]);
+			restack(selmon);
+			for (int j = i; j < hiddenWinStackTop; ++j) {
+				hiddenWinStack[j] = hiddenWinStack[j + 1];
+			}
+			--hiddenWinStackTop;
+			return;
+		}
+		--i;
+	}
 }
 
 void unfocus(Client *c, int setfocus) {
@@ -2881,7 +2958,6 @@ updatepreview(void)
 		XDefineCursor(dpy, m->tagwin, cursor[CurNormal]->cursor);
 		XMapRaised(dpy, m->tagwin);
 		XUnmapWindow(dpy, m->tagwin);
-		m->tagmap = XCreatePixmap(dpy, m->tagwin, m->mw / 4, m->mh / 4, DefaultDepth(dpy, screen));
 	}
 }
 
