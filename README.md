@@ -36,12 +36,9 @@ There is also a ```fonts``` dir if you don't want to use the aur.
 - feh
 - xmenu
 - st (siduck76's build)
-- xbacklight
-- acpi
-- picom-ibhagwan-git (optional, see [St transparency](#st-transparency))
 
 ```
-sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
+sudo pacman -S xorg-xsetroot pacman-contrib rofi feh
 ```
 
 To install ```xmenu```:
@@ -49,6 +46,24 @@ To install ```xmenu```:
 $ git clone https://aur.archlinux.org/xmenu.git
 $ cd xmenu
 $ makepkg -si
+```
+
+To install ```st```:
+```
+$ git clone https://github.com/siduck76/st
+$ cd st
+$ make
+# sudo make install
+```
+
+### Optional
+
+- xbacklight (brightness status)
+- acpi (battery status)
+- picom-ibhagwan-git (see [St transparency](#st-transparency))
+
+```
+sudo pacman -S xorg-xbacklight acpi
 ```
 
 # Setup
