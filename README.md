@@ -15,6 +15,7 @@ To use it you need to ```chmod +x``` the scripts.
 ## Dwm
 - xorg
 - xorg-server
+- imlib2
 
 ## Fonts
 
