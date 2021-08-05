@@ -5,6 +5,7 @@
 - NOTE: This is vanilla dwm bar (status2d patch for setting colors) not dwmblocks or polybar.
 
 ## To make installation easier and faster I made two scripts:
+
 1. install.sh (contains the setup instructions)
 2. packages.sh (install the needed packages)
 
@@ -13,8 +14,9 @@ To use it you need to ```chmod +x``` the scripts.
 # Requirements
 
 ## Dwm
-- xorg
-- xorg-server
+
+- xorg / xorg-server
+- Xlib
 - imlib2
 
 ## Fonts
@@ -24,7 +26,7 @@ To use it you need to ```chmod +x``` the scripts.
 - JetBrains Mono Nerd Font
 - Material Design Icons
 
-Use the ```fonts``` dir if you don't want to use the aur.
+There is also a ```fonts``` dir if you don't want to use the aur.
 
 ## Packages
 
@@ -37,6 +39,7 @@ Use the ```fonts``` dir if you don't want to use the aur.
 - xbacklight
 - acpi
 - picom-ibhagwan-git (optional, see [St transparency](#st-transparency))
+
 ```
 sudo pacman -S xorg-xsetroot xorg-xbacklight acpi pacman-contrib rofi feh
 ```
@@ -48,17 +51,10 @@ $ cd xmenu
 $ makepkg -si
 ```
 
-To install ```st``` (siduck76's build):
-```
-git clone https://github.com/siduck76/st
-cd st
-make
-sudo make install
-```
-
 # Setup
 
 - Change ```username``` in ```chadwm/dwm/config.def.h``` with your username.
+
 ```
 $ cp -r fonts/* ~/.local/share/fonts
 $ mkdir $HOME/Wallpapers
@@ -73,10 +69,12 @@ $ cd dwm
 $ make
 # sudo make install
 ```
+
 - ```autostart``` file must be adjusted for your liking!
 - If you are using ```xinit```, start dwm with ```exec ~/.dwm/autostart``` or copy ```dwm.desktop``` in ```/usr/share/xsessions``` folder.
 
 ## Shell packages
+
 - [logo-ls](https://github.com/Yash-Handa/logo-ls)
 - Zsh
 - [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh)
