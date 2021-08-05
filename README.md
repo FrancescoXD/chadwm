@@ -13,8 +13,8 @@ To use it you need to ```chmod +x``` the scripts.
 # Requirements
 
 ## Dwm
-- xorg
-- xorg-server
+- xorg / xorg-server
+- Xlib
 - imlib2
 
 ## Fonts
