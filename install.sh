@@ -1,5 +1,6 @@
 mkdir -p ~/.local/share/fonts
-cp -r fonts/* ~/.local/share/fonts
+cp -r fonts/JetBrainsMono/* ~/.local/share/fonts
+cp -r fonts/MaterialDesignIcons/* ~/.local/share/fonts
 mkdir $HOME/Wallpapers
 mkdir -p $HOME/Public/Xresources/nord
 cat nord-xresources/src/nord > $HOME/Public/Xresources/nord/.Xresources
