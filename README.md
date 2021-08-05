@@ -12,6 +12,10 @@ To use it you need to ```chmod +x``` the scripts.
 
 # Requirements
 
+## Dwm
+- xorg
+- xorg-server
+
 ## Fonts
 
 - Powerlevel10k (Zsh)
