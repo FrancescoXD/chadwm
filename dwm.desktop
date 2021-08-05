@@ -4,3 +4,4 @@ Name=DWM
 Comment=Dynamic Window Manager
 Exec=~/.dwm/autostart
 Type=XSession
+

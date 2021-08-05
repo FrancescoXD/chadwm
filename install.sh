@@ -21,5 +21,6 @@ echo -n "=> "
 read -r dm
 
 if [ $dm = "y" ] || [ $dm = "Y" ]; then
-	sudo cp dwm.desktop /usr/share/xsessions
+	sudo mkdir /usr/share/xsessions/
+	sudo cp dwm.desktop /usr/share/xsessions/
 fi
