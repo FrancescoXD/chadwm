@@ -8,7 +8,7 @@ makepkg -si
 cd ..
 
 # Install st (siduck76's build)
-echo "Do you want to have transparency in st? (It needs picom)"
+echo "Do you want to have transparency in st? You need also picom (y/n)"
 echo -n "=> "
 read -r transparency
 
@@ -23,11 +23,11 @@ sudo make install
 cd ..
 
 # Picom
-echo "Do you want to use picom?"
+echo "Do you want to use picom? (y/n)"
 echo -n "=> "
 read -r picom
 
-if [ $dm = "y" ] || [ $dm = "Y" ]; then
+if [ $picom = "y" ] || [ $picom = "Y" ]; then
 	git clone https://aur.archlinux.org/picom-ibhagwan-git.git
 	cd picom-ibhagwan-git
 	makepkg -si
