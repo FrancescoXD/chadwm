@@ -21,6 +21,7 @@ echo -n "=> "
 read -r dm
 
 if [ $dm = "y" ] || [ $dm = "Y" ]; then
+	sed -i "s/path/\/home\/$username\/.dwm\/autostart/g" dwm.desktop
 	sudo mkdir /usr/share/xsessions/
 	sudo cp dwm.desktop /usr/share/xsessions/
 fi
