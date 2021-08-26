@@ -1,6 +1,6 @@
 # chadwm (ArchLinux)
 
-<img src="https://github.com/siduck76/chadwm/blob/main/screenshots/col_layout.png">
+<img src="https://github.com/siduck76/chadwm/blob/screenshots/screenshots/col_layout.png">
 
 - NOTE: This is vanilla dwm bar (status2d patch for setting colors) not dwmblocks or polybar.
 
@@ -120,7 +120,7 @@ Then go to ```st``` folder, open the ```config.def.h```, on line 119 change ```f
 - bottomstack
 - cfacts
 - dragmfact 
-- dragcfact (took from bakkeby's build)
+- dragcfact (took from [bakkeby's build](https://github.com/bakkeby/dwm-flexipatch))
 - fibonacii
 - gaplessgrid
 - horizgrid
