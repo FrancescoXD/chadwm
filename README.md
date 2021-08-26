@@ -84,8 +84,6 @@ $ chmod +x $HOME/.dwm/autostart
 $ chmod +x $HOME/.dwm/bar
 $ chmod +x $HOME/.dwm/layoutmenu.sh
 $ cd chadwm/dwm
-$ username=$(whoami)
-$ sed -i "s/username/$username/g" config.def.h
 $ make
 # sudo make install
 $ make clean
