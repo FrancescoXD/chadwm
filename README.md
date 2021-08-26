@@ -9,7 +9,7 @@
 1. install.sh (contains the setup instructions)
 2. packages.sh (install the needed packages)
 
-To use it you need to ```chmod +x``` the scripts.
+To use it you need to ```chmod +x``` the scripts. Probably the scripts are more updated than the README.
 
 # Requirements
 
