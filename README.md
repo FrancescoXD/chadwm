@@ -71,18 +71,24 @@ sudo pacman -S xorg-xbacklight acpi
 - Change ```username``` in ```chadwm/dwm/config.def.h``` with your username.
 
 ```
-$ cp -r fonts/* ~/.local/share/fonts
+$ mkdir -p ~/.local/share/fonts
+$ cp -r fonts/JetBrainsMono/* ~/.local/share/fonts
+$ cp -r fonts/MaterialDesignIcons/* ~/.local/share/fonts
 $ mkdir $HOME/Wallpapers
-$ cat nord-xresources/src/nord > $HOME/Public/Xresources/nord/.Xresources
-$ cp wallpapers/wall.jpg $HOME/Wallpapers
+$ mkdir -p $HOME/Public/Xresources/nord
+$ cat config/nord-xresources/src/nord > $HOME/Public/Xresources/nord/.Xresources
+$ cp -r config/rofi $HOME/.config/
+$ cp -r wallpapers/* $HOME/Wallpapers
 $ cp -r chadwm/.dwm $HOME/
 $ chmod +x $HOME/.dwm/autostart
 $ chmod +x $HOME/.dwm/bar
 $ chmod +x $HOME/.dwm/layoutmenu.sh
-$ cd chadwm
-$ cd dwm
+$ cd chadwm/dwm
+$ username=$(whoami)
+$ sed -i "s/username/$username/g" config.def.h
 $ make
 # sudo make install
+$ make clean
 ```
 
 - ```autostart``` file must be adjusted for your liking!
