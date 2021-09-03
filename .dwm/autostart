@@ -2,8 +2,8 @@
 
 feh --bg-fill ~/Wallpapers/pexels.jpg &
 
-xrdb merge ~/Public/xresources/ocean/.Xresources &
-#xrdb merge ~/Public/xresources/nord/.Xresources &
+xrdb merge ~/Public/Xresources/ocean/.Xresources &
+#xrdb merge ~/Public/Xresources/nord/.Xresources &
 
 picom & 
 
