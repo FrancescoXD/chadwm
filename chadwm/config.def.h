@@ -4,8 +4,8 @@
 #define XF86MonBrightnessUp 0x1008ff02
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int default_border = 3;  // to switch back to default border after dynamic border resizing via keybinds
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int default_border = 0;  // to switch back to default border after dynamic border resizing via keybinds
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -33,19 +33,8 @@ static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:si
 static const char dmenufont[]       = "monospace:size=10";
 static const int colorfultag        = 1;  /* 0 means use SchemeSel for selected non vacant tag */
 
-
-static const char black[]       = "#2E3440";
-static const char gray2[]       = "#3B4252"; // unfocused window border
-static const char gray3[]       = "#606672";
-static const char gray4[]       = "#6d8dad";
-static const char blue[]        = "#81A1C1";  // focused window border
-static const char green[]       = "#89b482";
-static const char red[]         = "#BF616A";
-static const char orange[]      = "#caaa6a";
-static const char yellow[]      = "#EBCB8B";
-static const char pink[]        = "#B48EAD";
-static const char col_borderbar[]  = "#2E3440"; // inner border
-static const char purpleBlue[]  = "#6C77BB";
+// theme
+#include "themes/onedark.h"
 
 static const char *colors[][3]      = {
     /*               fg         bg         border   */
@@ -81,11 +70,11 @@ static const Rule rules[] = {
     /* xprop(1):
      *	WM_CLASS(STRING) = instance, class
      *	WM_NAME(STRING) = title
-    */
-    /* class      instance    title       tags mask     iscentered   isfloating   monitor */
+     */
+       	/* class      instance    title       tags mask     iscentered   isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
-    { "feh",      NULL,       NULL,       0,            0,           1,           -1 },
+      	{ "eww",      NULL,       NULL,       0,            0,           1,           -1 },
 };
 
 /* layout(s) */
@@ -139,7 +128,10 @@ static const char *xd[] = {"xbacklight", "-dec", "7", NULL};
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_c,      spawn,          {.v = rofi } },
-    { MODKEY,                       XK_Return, spawn,          {.v = termcmd }}, 
+
+    // if you dont use st my rm this and uncomment line below it!
+     /* { MODKEY,                       XK_Return, spawn,   SHCMD("~/.local/bin/./st_settings && st")}, */
+     { MODKEY,                       XK_Return, spawn,    {.v = termcmd }},
 
     {MODKEY | ControlMask, XK_u, spawn, SHCMD("maim | xclip -selection clipboard -t image/png")},
     {MODKEY, XK_u, spawn,   SHCMD("maim --select | xclip -selection clipboard -t image/png")},
