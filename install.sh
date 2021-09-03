@@ -8,19 +8,21 @@ cat config/nord-xresources/src/nord > $HOME/Public/Xresources/nord/.Xresources
 
 cp -r config/rofi $HOME/.config/
 cp -r wallpapers/* $HOME/Wallpapers
-cp -r chadwm/.dwm $HOME/
+cp -r .dwm $HOME/
 
 chmod +x $HOME/.dwm/autostart
-chmod +x $HOME/.dwm/bar
+chmod +x $HOME/.dwm/bars/gruvchad.sh
+chmod +x $HOME/.dwm/bars/nord.sh
+chmod +x $HOME/.dwm/bars/onedark.sh
 chmod +x $HOME/.dwm/layoutmenu.sh
 
-cd chadwm/dwm
+cd chadwm
 username=$(whoami)
 sed -i "s/username/$username/g" config.def.h
 make
 sudo make install
 make clean
-cd ../../
+cd ..
 
 echo "Do you use a Display Manager? (y/n): "
 echo -n "=> "

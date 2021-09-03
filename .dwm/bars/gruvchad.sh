@@ -5,30 +5,30 @@ interval=0
 cpu() {
   cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
 
-  printf "^c#3b414d^ ^b#A3BE8C^ CPU"
-  printf "^c#abb2bf^ ^b#414753^ $cpu_val"
+  printf "^c#222526^ ^b#89b482^ CPU"
+  printf "^c#c7b89d^ ^b#2b2e2f^ $cpu_val"
 }
 
 update_icon() {
-  printf "^c#94af7d^ "
+  printf "^c#89b482^ "
 }
 
 pkg_updates() {
-  updates=$(doas xbps-install -un | wc -l) # void
-  # updates=$(checkupdates | wc -l)   # arch , needs pacman contrib
+  # updates=$(doas xbps-install -un | wc -l) # void
+  updates=$(checkupdates | wc -l)   # arch , needs pacman contrib
   # updates=$(aptitude search '~U' | wc -l)  # apt (ubuntu,debian etc)
 
   if [ -z "$updates" ]; then
-    printf "^c#94af7d^ Fully Updated"
+    printf "^c#89b482^ Fully Updated"
   else
-    printf "^c#94af7d^ $updates"" updates"
+    printf "^c#89b482^ $updates"" updates"
   fi
 }
 
 # battery
 batt() {
-  printf "^c#81A1C1^  "
-  printf "^c#81A1C1^ $(acpi | sed "s/,//g" | awk '{if ($3 == "Discharging"){print $4; exit} else {print $4""}}' | tr -d "\n")"
+  printf "^c#6f8faf^  "
+  printf "^c#6f8faf^ $(acpi | sed "s/,//g" | awk '{if ($3 == "Discharging"){print $4; exit} else {print $4""}}' | tr -d "\n")"
 }
 
 brightness() {
@@ -38,12 +38,12 @@ brightness() {
     echo -e "$backlight"
   }
 
-  printf "^c#BF616A^   "
-  printf "^c#BF616A^%.0f\n" $(backlight)
+  printf "^c#ec6b64^   "
+  printf "^c#ec6b64^%.0f\n" $(backlight)
 }
 
 mem() {
-  printf "^c#7797b7^^b#2E3440^  "
+  printf "^c#7797b7^^b#222526^  "
   printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
 }
 
@@ -55,8 +55,8 @@ wlan() {
 }
 
 clock() {
-  printf "^c#2E3440^ ^b#828dd1^ 󱑆 "
-  printf "^c#2E3440^^b#6c77bb^ $(date '+%a, %I:%M %p') "
+  printf "^c#222526^ ^b#6080a0^ 󱑆 "
+  printf "^c#222526^^b#6f8faf^ $(date '+%a, %I:%M %p') "
 }
 
 while true; do

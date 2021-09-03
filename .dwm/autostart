@@ -1,0 +1,14 @@
+#!/bin/sh
+
+feh --bg-fill ~/Wallpapers/pexels.jpg &
+
+xrdb merge ~/Public/xresources/ocean/.Xresources &
+#xrdb merge ~/Public/xresources/nord/.Xresources &
+
+picom & 
+
+xbacklight -set 10 &
+
+~/.dwm/bars/onedark.sh &
+
+dwm
