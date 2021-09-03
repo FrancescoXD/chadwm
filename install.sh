@@ -4,7 +4,10 @@ cp -r fonts/MaterialDesignIcons/* ~/.local/share/fonts
 
 mkdir $HOME/Wallpapers
 mkdir -p $HOME/Public/Xresources/nord
+mkdir $HOME/Public/Xresources/ocean
+
 cat config/nord-xresources/src/nord > $HOME/Public/Xresources/nord/.Xresources
+cp config/material-ocean/.Xresources $HOME/Public/Xresources/ocean
 
 cp -r config/rofi $HOME/.config/
 cp -r wallpapers/* $HOME/Wallpapers
