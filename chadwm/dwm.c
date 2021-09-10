@@ -1514,7 +1514,7 @@ drawtab(Monitor *m) {
 	m->ntabs = 0;
 	for(c = m->clients; c; c = c->next){
 	  if(!ISVISIBLE(c)) continue;
-          m->tab_widths[m->ntabs] = TEXTW(c->name) - lrpad + horizpadtabi + horizpadtabo;
+          m->tab_widths[m->ntabs] = MIN(TEXTW(c->name) - lrpad + horizpadtabi + horizpadtabo, 250);
 	  tot_width += m->tab_widths[m->ntabs];
 	  ++m->ntabs;
 	  if(m->ntabs >= MAXTABS) break;
@@ -2872,7 +2872,7 @@ void showhide(Client *c) {
 void
 showtagpreview(int tag)
 {
-	if (!selmon->previewshow) {
+	if (!selmon->previewshow  || !tag_preview ) {
 		XUnmapWindow(dpy, selmon->tagwin);
 		return;
 	}
@@ -2932,7 +2932,7 @@ void switchtag(void) {
  				XFreePixmap(dpy, selmon->tagmap[i]);
  				selmon->tagmap[i] = 0;
  			}
-			if (occ & 1 << i) {
+			if (occ & 1 << i && tag_preview) {
                           	image = imlib_create_image(sw, sh);
 				imlib_context_set_image(image);
 				imlib_context_set_display(dpy);
@@ -3541,6 +3541,7 @@ void view(const Arg *arg) {
   selmon->seltags ^= 1; /* toggle sel tagset */
   if (arg->ui & TAGMASK) {
     selmon->pertag->prevtag = selmon->pertag->curtag;
+    selmon->tagset[selmon->seltags] = arg->ui & TAGMASK;
 
 		if (arg->ui == ~0)
 			selmon->pertag->curtag = 0;
@@ -3562,7 +3563,6 @@ void view(const Arg *arg) {
 
 	if (selmon->showbar != selmon->pertag->showbars[selmon->pertag->curtag])
 		togglebar(NULL);
-    selmon->tagset[selmon->seltags] = arg->ui & TAGMASK;
   focus(NULL);
   arrange(selmon);
   	updatecurrentdesktop();
