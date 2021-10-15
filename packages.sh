@@ -1,5 +1,5 @@
 # Install packages
-sudo pacman -S xorg-xsetroot pacman-contrib rofi feh
+sudo pacman -S xorg-xsetroot pacman-contrib rofi feh picom
 
 # xbacklight package
 echo "Do you need xbacklight? It is used to display brightness status (Y/n)"
@@ -31,7 +31,7 @@ read -r transparency
 git clone https://github.com/siduck76/st
 cd st
 if [ $transparency = "y" ] || [ $transparency = "Y" ]; then
-	sed -i 's/float alpha = 1.0;/float alpha = 0.9;/g' config.def.h
+	sed -i 's/float alpha = 1.0;/float alpha = 0.8;/g' config.def.h
 fi
 make
 sudo make install
@@ -40,11 +40,8 @@ cd ..
 # Picom
 echo "Do you want to use picom? (Y/n)"
 echo -n "=> "
-read -r picom
+read -r picomt
 
-if [ $picom = "y" ] || [ $picom = "Y" ]; then
-	git clone https://aur.archlinux.org/picom-ibhagwan-git.git
-	cd picom-ibhagwan-git
-	makepkg -si
+if [ $picomt = "y" ] || [ $picomt = "Y" ]; then
 	sed -i 's/\#picom \&/picom \&/g' ~/.dwm/autostart
 fi
