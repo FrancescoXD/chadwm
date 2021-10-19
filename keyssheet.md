@@ -73,7 +73,7 @@ key                    | Do             | Value
  win + e               |  hidewin       |0
  win + shift + e       |  restorewin    |0
 
-## button definitions
+## Button Definitions
  click         | event mask |  button    |  function     | argument
 -------------- | ---------- | ---------- | ------------- | -------------  
  ClkLtSymbol   |   0        |  Button1   | setlayout     | 0

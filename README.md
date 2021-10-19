@@ -60,15 +60,15 @@ sudo pacman -S xorg-xbacklight acpi
 
 # Setup
 
-- Change ```username``` in ```chadwm/dwm/config.def.h``` with your username.
-
 ```
 $ mkdir -p ~/.local/share/fonts
 $ cp -r fonts/JetBrainsMono/* ~/.local/share/fonts
 $ cp -r fonts/MaterialDesignIcons/* ~/.local/share/fonts
 $ mkdir $HOME/Wallpapers
 $ mkdir -p $HOME/Public/Xresources/nord
+$ mkdir $HOME/Public/Xresources/ocean
 $ cat config/nord-xresources/src/nord > $HOME/Public/Xresources/nord/.Xresources
+$ cp config/material-ocean/.Xresources $HOME/Public/Xresources/ocean
 $ cp -r config/rofi $HOME/.config/
 $ cp -r wallpapers/* $HOME/Wallpapers
 $ cp -r .dwm $HOME/
@@ -76,10 +76,9 @@ $ chmod +x $HOME/.dwm/autostart
 $ chmod +x $HOME/.dwm/bars/gruvchad.sh
 $ chmod +x $HOME/.dwm/bars/nord.sh
 $ chmod +x $HOME/.dwm/bars/onedark.sh
-$ chmod +x $HOME/.dwm/layoutmenu.sh
 $ cd chadwm
 $ make
-$ sudo make install
+# sudo make install
 $ make clean
 ```
 
