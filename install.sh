@@ -17,7 +17,6 @@ chmod +x $HOME/.dwm/autostart
 chmod +x $HOME/.dwm/bars/gruvchad.sh
 chmod +x $HOME/.dwm/bars/nord.sh
 chmod +x $HOME/.dwm/bars/onedark.sh
-chmod +x $HOME/.dwm/layoutmenu.sh
 
 cd chadwm
 make
