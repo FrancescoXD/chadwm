@@ -130,7 +130,6 @@ Then go to ```st``` folder, open the ```config.def.h```, on line 119 change ```f
 - fibonacii
 - gaplessgrid
 - horizgrid
-- layoutmenu 
 - movestack 
 - vanity gaps
 - colorful tags

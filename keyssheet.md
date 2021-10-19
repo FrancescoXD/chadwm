@@ -45,7 +45,7 @@ key                     | Do         | Value
  win + ctrl + t         | togglegaps |    0
  win + ctrl + shift + d | defaultgaps|    0
 
-## Generak Keys
+## General Keys
 key                    | Do             | Value
 ---------------------- | -------------- | ------
  win + q               |  killclient    | 0
@@ -78,7 +78,6 @@ key                    | Do             | Value
 -------------- | ---------- | ---------- | ------------- | -------------  
  ClkLtSymbol   |   0        |  Button1   | setlayout     | 0
  ClkLtSymbol   |   0        |  Button3   | setlayout     | layouts[2]
- ClkLtSymbol   |   0        |  Button3   | layoutmenu    | 0
  ClkWinTitle   |   0        |  Button2   | zoom          | 0
  ClkStatusText |   0        |  Button2   | spawn         | termcmd 
  ClkClientWin  |   win +    |  Button1   | moveorplace   | 0
