@@ -20,8 +20,6 @@ chmod +x $HOME/.dwm/bars/onedark.sh
 chmod +x $HOME/.dwm/layoutmenu.sh
 
 cd chadwm
-username=$(whoami)
-sed -i "s/username/$username/g" config.def.h
 make
 sudo make install
 make clean

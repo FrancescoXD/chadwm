@@ -34,18 +34,10 @@ There is also a ```fonts``` dir if you don't want to use the aur.
 - pacman-contrib
 - rofi
 - feh
-- xmenu
 - st (siduck76's build)
 
 ```
 sudo pacman -S xorg-xsetroot pacman-contrib rofi feh
-```
-
-To install ```xmenu```:
-```
-$ git clone https://aur.archlinux.org/xmenu.git
-$ cd xmenu
-$ makepkg -si
 ```
 
 To install ```st```:

@@ -17,12 +17,6 @@ if [ $battery = "y" ] || [ $battery = "Y" ]; then
 	sudo pacman -S acpi
 fi
 
-# Install xmenu
-git clone https://aur.archlinux.org/xmenu.git
-cd xmenu
-makepkg -si
-cd ..
-
 # Install st (siduck76's build)
 echo "Do you want to have transparency in st? You need also picom (Y/n)"
 echo -n "=> "
