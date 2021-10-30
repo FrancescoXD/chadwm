@@ -1,14 +1,6 @@
 # Install packages
 sudo pacman -S xorg-xsetroot pacman-contrib rofi feh picom
 
-# xbacklight package
-echo "Do you need xbacklight? It is used to display brightness status (Y/n)"
-echo -n "=> "
-read -r xbacklight
-if [ $xbacklight = "y" ] || [ $xbacklight = "Y" ]; then
-	sudo pacman -S xorg-xbacklight
-fi
-
 # acpi package
 echo "Do you need acpi? It is used to display battery status (Y/n)"
 echo -n "=> "
