@@ -88,6 +88,7 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 #define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
 #include "functions.h"
 
+
 static const Layout layouts[] = {
     /* symbol     arrange function */
     { "[]=",      tile },    /* first entry is default */
@@ -103,7 +104,6 @@ static const Layout layouts[] = {
     { ":::",      gaplessgrid },
     { "|M|",      centeredmaster },
     { ">M>",      centeredfloatingmaster },
-    { "|+|",      tatami },
     { "><>",      NULL },    /* no layout function means floating behavior */
 };
 
@@ -129,10 +129,7 @@ static const char *xd[] = {"xbacklight", "-dec", "7", NULL};
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_c,      spawn,          {.v = rofi } },
-
-    // if you dont use st my rm this and uncomment line below it!
-     /* { MODKEY,                       XK_Return, spawn,   SHCMD("~/.local/bin/./st_settings && st")}, */
-     { MODKEY,                       XK_Return, spawn,    {.v = termcmd }},
+    { MODKEY,                       XK_Return, spawn,          {.v = termcmd }},  
 
     {MODKEY | ControlMask, XK_u, spawn, SHCMD("maim | xclip -selection clipboard -t image/png")},
     {MODKEY, XK_u, spawn,   SHCMD("maim --select | xclip -selection clipboard -t image/png")},

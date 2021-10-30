@@ -1,8 +1,10 @@
 # chadwm (ArchLinux)
 
-<img src="https://github.com/siduck76/chadwm/blob/screenshots/screenshots/col_layout.png">
+<img src="https://github.com/siduck/chadwm/blob/screenshots/screenshots/initial_look.png">
+<img src="https://github.com/siduck/chadwm/blob/screenshots/screenshots/col_layout.png">
 
-- NOTE: This is vanilla dwm bar (status2d patch for setting colors) not dwmblocks or polybar.
+<img src="https://github.com/siduck/chadwm/blob/screenshots/screenshots/occ_act_tags.png">
+(empty workspaces have their color greyed out)
 
 ## To make installation easier and faster I made two scripts:
 
@@ -126,6 +128,5 @@ Then go to ```st``` folder, open the ```config.def.h```, on line 119 change ```f
 - colorful tags
 - statuspadding 
 - status2d
-- tatami 
 - underline tags
 - notitle

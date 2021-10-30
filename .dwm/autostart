@@ -1,14 +1,11 @@
 #!/bin/sh
 
-feh --bg-fill ~/Wallpapers/pexels.jpg &
+# add your autostart stuffs here
 
+picom &
 xrdb merge ~/Public/Xresources/ocean/.Xresources &
-#xrdb merge ~/Public/Xresources/nord/.Xresources &
+feh --bg-tile ~/Pictures/wall/gruv.png &
 
-picom & 
-
-xbacklight -set 10 &
-
-~/.dwm/bars/onedark.sh &
-
+# run bar script and dwm ( do not remove this ) 
+~/.dwm/bar/./bar.sh & 
 dwm

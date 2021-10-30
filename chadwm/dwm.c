@@ -427,7 +427,6 @@ struct Monitor {
 
 #include "vanitygaps.c"
 #include "movestack.c"
-#include "tatami.c"
 
 struct Pertag {
 	unsigned int curtag, prevtag; /* current and previous tag */
@@ -2299,7 +2298,7 @@ void propertynotify(XEvent *e) {
 }
 
 void quit(const Arg *arg) {
-  if(arg->i == 0)  system("killall bar");
+  if(arg->i == 0)  system("killall bar.sh");
 
   else if (arg->i)
     restart = 1;
