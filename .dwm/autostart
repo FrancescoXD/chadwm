@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# add your autostart stuffs here
+setxkbmap it
 
 picom &
 xrdb merge ~/Public/Xresources/ocean/.Xresources &
 feh --bg-tile ~/Pictures/wall/gruv.png &
 
 # run bar script and dwm ( do not remove this ) 
-~/.dwm/bar/./bar.sh & 
+~/.dwm/bar/bar.sh & 
 dwm
