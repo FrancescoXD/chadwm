@@ -1,10 +1,11 @@
 # chadwm (ArchLinux)
 
 <img src="https://github.com/siduck/chadwm/blob/screenshots/screenshots/initial_look.png">
-<img src="https://github.com/siduck/chadwm/blob/screenshots/screenshots/col_layout.png">
 
 <img src="https://github.com/siduck/chadwm/blob/screenshots/screenshots/occ_act_tags.png">
 (empty workspaces have their color greyed out)
+
+[Wallpapers](https://github.com/aynp/dracula-wallpapers)
 
 ## To make installation easier and faster I made two scripts:
 
