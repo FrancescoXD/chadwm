@@ -31,7 +31,7 @@ echo -n "=> "
 read -r dm
 
 if [ $dm = "y" ] || [ $dm = "Y" ]; then
-	sed -i "s/path/\/home\/$username\/.dwm\/autostart/g" dwm.desktop
+	sed -i "s/path/\/home\/$(whoami)\/.config\/chadwm\/scripts\/autostart/g" chadwm.desktop
 	sudo mkdir /usr/share/xsessions/
 	sudo cp chadwm.desktop /usr/share/xsessions/
 fi
