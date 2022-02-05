@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Italian keyboard (change it)
+setxkbmap it
+
+#xbacklight -set 5 &
+#xmodmap ~/.xmodmap-sid &
+picom &
+xrdb merge ~/Public/Xresources/ocean/.Xresources &
+feh --bg-fill $HOME/Wallpapers/remove.png &
+
+# run bar script and dwm ( do not remove this )
+$HOME/.config/chadwm/scripts/./bar.sh &
+dwm

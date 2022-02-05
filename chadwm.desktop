@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=DWM
+Name=ChaDWM
 Comment=Dynamic Window Manager
 Exec=path
 Type=XSession

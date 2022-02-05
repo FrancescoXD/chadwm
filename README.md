@@ -1,9 +1,6 @@
 # chadwm (ArchLinux)
 
-<img src="https://github.com/siduck/chadwm/blob/screenshots/screenshots/initial_look.png">
-
-<img src="https://github.com/siduck/chadwm/blob/screenshots/screenshots/occ_act_tags.png">
-(empty workspaces have their color greyed out)
+<img src='https://i.redd.it/t1pvmqlq3oc81.png'>
 
 [Wallpapers](https://github.com/aynp/dracula-wallpapers)
 
@@ -12,15 +9,14 @@
 1. packages.sh (install the needed packages)
 2. install.sh (contains the setup instructions)
 
-To use it you need to ```chmod +x``` the scripts. Probably the scripts are more updated than the README.
+To use it you need to ```chmod +x``` the scripts.
 
 # Requirements
 
-## Dwm
-
-- xorg / xorg-server
-- Xlib
-- imlib2
+- dash (shell)
+- imlib2 
+- xsetroot package ( status2d uses this to add colors on dwmbar)
+- JetbrainsMono Nerd Font (or any nerd font) and Material design icon font
 
 ## Fonts
 
@@ -63,26 +59,15 @@ sudo pacman -S xorg-xbacklight acpi
 
 # Setup
 
+Just use these scripts:
+1. packages.sh (install the needed packages)
+2. install.sh (contains the setup instructions)
+
+Example:
+
 ```
-$ mkdir -p ~/.local/share/fonts
-$ cp -r fonts/JetBrainsMono/* ~/.local/share/fonts
-$ cp -r fonts/MaterialDesignIcons/* ~/.local/share/fonts
-$ mkdir $HOME/Wallpapers
-$ mkdir -p $HOME/Public/Xresources/nord
-$ mkdir $HOME/Public/Xresources/ocean
-$ cat config/nord-xresources/src/nord > $HOME/Public/Xresources/nord/.Xresources
-$ cp config/material-ocean/.Xresources $HOME/Public/Xresources/ocean
-$ cp -r config/rofi $HOME/.config/
-$ cp -r wallpapers/* $HOME/Wallpapers
-$ cp -r .dwm $HOME/
-$ chmod +x $HOME/.dwm/autostart
-$ chmod +x $HOME/.dwm/bars/gruvchad.sh
-$ chmod +x $HOME/.dwm/bars/nord.sh
-$ chmod +x $HOME/.dwm/bars/onedark.sh
-$ cd chadwm
-$ make
-# sudo make install
-$ make clean
+$ chmod +x packages.sh
+$ ./packages.sh
 ```
 
 - ```autostart``` file must be adjusted for your liking!
@@ -109,10 +94,27 @@ $ makepkg -si
 
 Then go to ```st``` folder, open the ```config.def.h```, on line 119 change ```float alpha = 1.0;``` to something like ```float alpha = 0.8;```.
 
+# Recompile 
+
+- You need to recompile dwm after every change you make in its src code.
+
+```
+cd ~/.config/chadwm/chadwm
+rm config.h
+sudo make install
+```
+
+# Change themes 
+
+- Bar  : in bar.sh and config.def.h
+- eww  : in eww.scss
+- rofi : in config.rasi 
+
 # Credits 
 
-- HUGE THANKS to [eProTaLT83](https://www.reddit.com/user/eProTaLT83). I wanted certain features in dwm and he implemented my ideas and created patches for me! I can't even count the number of times he has helped me :v
+- HUGE THANKS to [eProTaLT83](https://www.reddit.com/user/eProTaLT83). I wanted certain features in dwm like tabbar in monocle , tagpreview etc and he implemented my ideas and created patches for me! I cant even count the number of times he has helped me :v 
 - @fitrh helped with [colorful tag patch](https://github.com/fitrh/dwm/issues/1)
+- [6gk](https://github.com/6gk/fet.sh), eww's pure posix fetch functions taken from here
 
 # Patches
 

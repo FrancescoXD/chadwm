@@ -5,8 +5,8 @@
 
 interval=0
 
-# load colors!
-. ~/.dwm/bar/themes/onedark
+# load colors
+. ~/.config/chadwm/scripts/bar_themes/catppuccin
 
 cpu() {
 	cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
@@ -43,7 +43,7 @@ mem() {
 }
 
 wlan() {
-	case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
+	case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
 	up) printf "^c$black^ ^b$blue^ 󰤨 ^d^%s" " ^c$blue^Connected" ;;
 	down) printf "^c$black^ ^b$blue^ 󰤭 ^d^%s" " ^c$blue^Disconnected" ;;
 	esac
@@ -51,7 +51,7 @@ wlan() {
 
 clock() {
 	printf "^c$black^ ^b$darkblue^ 󱑆 "
-	printf "^c$black^^b$blue^ $(date '+%I:%M %p') "
+	printf "^c$black^^b$blue^ $(date '+%I:%M %p')  "
 }
 
 while true; do
