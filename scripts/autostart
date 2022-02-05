@@ -6,7 +6,8 @@ setxkbmap it
 #xbacklight -set 5 &
 #xmodmap ~/.xmodmap-sid &
 picom &
-xrdb merge ~/Public/Xresources/ocean/.Xresources &
+#xrdb merge ~/Public/Xresources/ocean/.Xresources &
+xrdb merge $HOME/.config/chadwm/config/.Xresources &
 feh --bg-fill $HOME/Wallpapers/remove.png &
 
 # run bar script and dwm ( do not remove this )

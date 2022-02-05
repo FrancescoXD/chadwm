@@ -17,7 +17,7 @@ cp -r rofi $HOME/.config/
 
 # Install chadwm
 cd ..
-cp chadwm $HOME/.config/
+cp -r chadwm $HOME/.config/
 cd $HOME/.config/chadwm/chadwm/
 
 make
