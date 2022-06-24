@@ -1,0 +1,24 @@
+#!/bin/bash
+
+## Installer script to make things easier
+
+# Copy fonts
+fonts_dir = $HOME/.local/share/fonts/
+mkdir -p $fonts_dir
+cp fonts/MaterialDesignIconsDesktop.ttf $fonts_dir
+
+# Wallpapers and Xresources
+cp .Xresources $HOME/
+
+# Copy dirs to correct location
+cp -r eww $HOME/.config/
+cp -r rofi $HOME/.config/
+
+# Make display manager config
+sudo mkdir /usr/share/xsessions/
+sudo mv chadwm.desktop /usr/share/xsessions/
+
+# Install
+cd chadwm
+sudo make install
+make clean

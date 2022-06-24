@@ -32,7 +32,7 @@ static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:si
                                         "Material Design Icons Desktop:size=10" };
 
 // theme
-#include "themes/onedark.h"
+#include "themes/catppuccin.h"
 
 static const char *colors[][3]      = {
     /*                     fg       bg      border */
