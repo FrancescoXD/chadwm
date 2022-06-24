@@ -3,10 +3,10 @@
 ## Installer script to make things easier
 
 # Chmod all script
-chmod +x script/bar.sh
-chmod +x script/run.sh
-chmod +x script/fetch
-chmod +x script/bar_themes/*
+chmod +x scripts/bar.sh
+chmod +x scripts/run.sh
+chmod +x scripts/fetch
+chmod +x scripts/bar_themes/*
 
 # Copy fonts
 fonts_dir=$HOME/.local/share/fonts/
