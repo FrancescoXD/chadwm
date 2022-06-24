@@ -15,6 +15,12 @@ https://user-images.githubusercontent.com/59060246/128050994-17f46934-6604-4430-
 - Materiald design icon font - [link](https://github.com/Templarian/MaterialDesign-Font/blob/master/MaterialDesignIconsDesktop.ttf)
 - Make sure to setup your terminal's theme accordingly do chadwm's theme such as nord, onedark etc...
 
+## Other packages
+- picom
+- feh
+- rofi
+- acpi
+
 ## Install
 
 Simply download the repo:

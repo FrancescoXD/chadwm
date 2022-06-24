@@ -2,7 +2,7 @@
 
 ## Packages installer script
 sudo pacman -Syu # first of all update your system!
-sudo pacman -S dash imlib2 xorg-xsetroot rofi rustup # rust is required by eww
+sudo pacman -S picom feh rofi acpi dash imlib2 xorg-xsetroot rofi rustup # rust is required by eww
 
 # Install EWW
 (
