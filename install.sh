@@ -21,11 +21,11 @@ cp -r eww $HOME/.config/
 cp -r rofi $HOME/.config/
 
 # Make display manager config
+sed -i "s/user/$(whoami)/g" chadwm.desktop
 sudo mkdir /usr/share/xsessions/
 sudo cp chadwm.desktop /usr/share/xsessions/
 
 # Install
-sed -i "s/user/$(whoami)/g" chadwm.desktop
 cd chadwm
 sudo make install
 make clean
