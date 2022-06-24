@@ -2,6 +2,12 @@
 
 ## Installer script to make things easier
 
+# Chmod all script
+chmod +x script/bar.sh
+chmod +x script/run.sh
+chmod +x script/fetch
+chmod +x script/bar_themes/*
+
 # Copy fonts
 fonts_dir=$HOME/.local/share/fonts/
 mkdir -p $fonts_dir
