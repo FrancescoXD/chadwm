@@ -1,4 +1,4 @@
-configuration{
+configuration {
     modi: "run,drun,window";
     lines: 5;
     font: "Iosevka 12";
@@ -12,7 +12,7 @@ configuration{
     display-drun: "   Apps ";
 }
 
-@theme "everblush"
+@theme "dracula"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;

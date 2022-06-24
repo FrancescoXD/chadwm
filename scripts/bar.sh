@@ -18,7 +18,7 @@ cpu() {
 pkg_updates() {
   #updates=$(doas xbps-install -un | wc -l) # void
   updates=$(pacman -Qu | wc -l)   # arch
-  #updates=$(aptitude search '~U' | wc -l)  # apt (ubuntu,debian etc)
+  #updates=$(aptitude search '~U' | wc -l)  # apt (ubuntu, debian etc)
 
   if [ -z "$updates" ]; then
     printf "^c$green^  Fully Updated"
