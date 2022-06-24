@@ -21,7 +21,7 @@ Simply download the repo:
 
 ```shell
 git clone https://github.com/FrancescoXD/chadwm.git --depth 1 ~/.config/chadwm
-cd ~/.config/chadwm/chadwm
+cd ~/.config/chadwm/
 ```
 
 And now if you want to skip all these parts below just start the installer script:
