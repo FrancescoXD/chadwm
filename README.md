@@ -11,16 +11,16 @@ https://user-images.githubusercontent.com/59060246/128050994-17f46934-6604-4430-
 - dash (shell)
 - imlib2
 - xsetroot package (status2d uses this to add colors on dwmbar)
-- JetbrainsMono Nerd Font or any nerd font but dont forget to set it in config.def.h
+- JetbrainsMono Nerd Font or any nerd font but dont forget to set it in `config.def.h`
 - Materiald design icon font - [link](https://github.com/Templarian/MaterialDesign-Font/blob/master/MaterialDesignIconsDesktop.ttf)
-- Make sure to setup your terminal's theme accordingly do chadwm's theme such as nord, onedark etc.
+- Make sure to setup your terminal's theme accordingly do chadwm's theme such as nord, onedark etc...
 
 ## Install
 
 Simply download thhe repo:
 
 ```shell
-git clone https://github.com/siduck/chadwm --depth 1 ~/.config
+git clone https://github.com/FrancescoXD/chadwm.git --depth 1 ~/.config
 cd ~/.config/chadwm/chadwm
 ```
 
