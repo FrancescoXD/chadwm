@@ -20,7 +20,7 @@ https://user-images.githubusercontent.com/59060246/128050994-17f46934-6604-4430-
 Simply download thhe repo:
 
 ```shell
-git clone https://github.com/FrancescoXD/chadwm.git --depth 1 ~/.config
+git clone https://github.com/FrancescoXD/chadwm.git --depth 1 ~/.config/chadwm
 cd ~/.config/chadwm/chadwm
 ```
 
