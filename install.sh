@@ -3,7 +3,7 @@
 ## Installer script to make things easier
 
 # Copy fonts
-fonts_dir = $HOME/.local/share/fonts/
+fonts_dir=$HOME/.local/share/fonts/
 mkdir -p $fonts_dir
 cp fonts/MaterialDesignIconsDesktop.ttf $fonts_dir
 
@@ -16,9 +16,10 @@ cp -r rofi $HOME/.config/
 
 # Make display manager config
 sudo mkdir /usr/share/xsessions/
-sudo mv chadwm.desktop /usr/share/xsessions/
+sudo cp chadwm.desktop /usr/share/xsessions/
 
 # Install
+sed -i "s/user/$(whoami)/g" chadwm.desktop
 cd chadwm
 sudo make install
 make clean

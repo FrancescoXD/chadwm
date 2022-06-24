@@ -17,7 +17,7 @@ https://user-images.githubusercontent.com/59060246/128050994-17f46934-6604-4430-
 
 ## Install
 
-Simply download thhe repo:
+Simply download the repo:
 
 ```shell
 git clone https://github.com/FrancescoXD/chadwm.git --depth 1 ~/.config/chadwm
@@ -47,6 +47,8 @@ sx sh ~/.config/chadwm/scripts/run.sh
 
 ## With a Display Manager
 
+Change `user` to your username in the `chadwm.desktop` file.
+
 ```shell
 sudo mkdir /usr/share/xsessions/ # if it doesn't exist
 sudo mv chadwm.desktop /usr/share/xsessions/
@@ -62,7 +64,7 @@ make clean
 sudo make install
 ```
 
-# Change themes (default: catpuccin)
+# Change themes (default: catppuccin)
 
 - Bar  : in `bar.sh` (line 9) and `config.def.h` (line 35)
 - eww  : in `eww.scss` (line 1)
@@ -88,7 +90,7 @@ eww open eww
 eww open alsa-gui
 ```
 
-- It could be a good idea to add these lines to your autostart file, located at `~/.config/chadwm/scripts/autostart`
+- It could be a good idea to add these lines to your autostart file, located at `~/.config/chadwm/scripts/run.sh`
 
 # Credits
 
