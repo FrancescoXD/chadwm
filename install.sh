@@ -20,6 +20,8 @@ chmod +x scripts/bar_themes/*
 fonts_dir=$HOME/.local/share/fonts/
 mkdir -p $fonts_dir
 cp fonts/MaterialDesignIconsDesktop.ttf $fonts_dir
+cp -r fonts/JetBrainsMono $fonts_dir
+fc-cache -f -v
 
 # Wallpapers and Xresources
 cp .Xresources $HOME/
