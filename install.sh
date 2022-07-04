@@ -2,6 +2,14 @@
 
 ## Installer script to make things easier
 
+# Ask for layout
+echo "us English (US)"
+echo "it Italian"
+echo "fr French"
+echo "> Type your layout: "
+read -r kbl
+sed -i "s/KBL/$kbl/g" scripts/run.sh
+
 # Chmod all script
 chmod +x scripts/bar.sh
 chmod +x scripts/run.sh
