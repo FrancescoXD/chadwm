@@ -15,6 +15,7 @@ cp fonts/MaterialDesignIconsDesktop.ttf $fonts_dir
 
 # Wallpapers and Xresources
 cp .Xresources $HOME/
+cp -r .wallpapers $HOME/
 
 # Copy dirs to correct location
 cp -r eww $HOME/.config/

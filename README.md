@@ -19,7 +19,6 @@ https://user-images.githubusercontent.com/59060246/128050994-17f46934-6604-4430-
 - picom
 - feh
 - rofi
-- acpi
 
 ## Install
 
