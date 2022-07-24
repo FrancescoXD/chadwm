@@ -31,7 +31,7 @@ static const int colorfultag        = 1;        /* 0 means use SchemeSel for sel
 #define ICONSIZE 19   /* icon size */
 #define ICONSPACING 8 /* space between icon and title */
 
-static const char *fonts[]          = {"Iosevka:style:medium:size=12" ,"JetBrainsMono Nerd Font:style:medium:size=11",
+static const char *fonts[]          = {"JetBrainsMono Nerd Font:style:medium:size=11",
                                         "Material Design Icons Desktop:size=11" };
 
 // theme
