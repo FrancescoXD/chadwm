@@ -1,11 +1,11 @@
 #!/bin/sh
 
 pkgCount() {
-  xbps-query -l | wc -l
+  checkupdates | wc -l
 }
 
 pkgUpdates() {
-  updates=$(xbps-install -S -un | cut -d' ' -f2 | sort | uniq -c | xargs)
+  updates=$(checkupdates | wc -l)
 
   if [ -z "$updates" ]; then
     echo "Fully Updated"
