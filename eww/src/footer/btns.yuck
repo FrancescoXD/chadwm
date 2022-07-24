@@ -27,7 +27,7 @@
   )
 
  (btn :name "" 
-    :command "doas zzz"
+    :command "poweroff"
     :class "sleep"
   )
 ))

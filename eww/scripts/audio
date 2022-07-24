@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 headvol() {
   amixer sget Headphone | grep 'Left:' | cut -d\  -f7 | tr -d '[%]'
