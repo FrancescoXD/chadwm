@@ -2,7 +2,18 @@
 
 ## Packages installer script
 sudo pacman -Syu # first of all update your system!
-sudo pacman -S alsa alsa-utils picom feh rofi dash imlib2 xorg-xsetroot rofi rustup # rust is required by eww
+sudo pacman -S slock alsa alsa-utils picom feh rofi dash imlib2 xorg-xsetroot rofi rustup # rust is required by eww
+
+echo "Do you need a WIFI GUI manager (Y/n)?:"
+read -r wifim
+if [ "$wifim" == "Y" ] || [ "$wifim" == "y" ]; then
+    (
+        git clone https://aur.archlinux.org/iwgtk.git
+        cd iwgtk
+        makepkg -si
+    )
+    rm -rf iwgtk
+fi
 
 # Install EWW
 (
